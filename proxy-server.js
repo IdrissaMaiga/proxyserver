@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 
 // Media route
-app.get('/serieinfo/:url', async (req, res) => {
+app.get('/proxy/serieinfo/:url', async (req, res) => {
     try {
         const { url } = req.params;
         const parsedUrl = STREAMING_URL+serieiInfoEndpoint+(new URL(decodeURIComponent(url)));
@@ -57,7 +57,7 @@ app.get('/serieinfo/:url', async (req, res) => {
 
 
 // Proxy EPG API requests
-app.get('/epg', async (req, res) => {
+app.get('/proxy/epg', async (req, res) => {
     try {
         const { username, password, action, stream_id } = req.query;
         // Validate required parameters
@@ -86,7 +86,7 @@ app.get('/epg', async (req, res) => {
 
 
 // Media route
-app.get('/media/:url', async (req, res) => {
+app.get('/proxy/media/:url', async (req, res) => {
     try {
         const { url } = req.params;
         const parsedUrl = new URL(decodeURIComponent(url));
@@ -110,7 +110,7 @@ app.get('/media/:url', async (req, res) => {
 
 
 // Proxy route
-app.get('/video/:url', async (req, res) => {
+app.get('/proxy/video/:url', async (req, res) => {
     try {
         const { url } = req.params;
         const decodedUrl = STREAMING_URL + decodeURIComponent(url);
@@ -155,7 +155,7 @@ app.get('/video/:url', async (req, res) => {
 
 
 
-app.get('/video1/:url', async (req, res) => {
+app.get('/proxy/video1/:url', async (req, res) => {
     try {
         const { url } = req.params;
         const decodedUrl = STREAMING_URL + decodeURIComponent(url);
@@ -212,7 +212,7 @@ app.get('/video1/:url', async (req, res) => {
 });
 
 
-app.get('/live/:encodedUrl', async (req, res) => {
+app.get('/proxy/live/:encodedUrl', async (req, res) => {
     try {
         const { encodedUrl } = req.params;
         const decodedUrl = STREAMING_URL + decodeURIComponent(encodedUrl);
