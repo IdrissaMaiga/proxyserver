@@ -6,7 +6,7 @@ import ffmpeg from 'fluent-ffmpeg';
 import ffmpegStatic from 'ffmpeg-static';
 import stream from 'stream';
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 ffmpeg.setFfmpegPath(ffmpegStatic);
 // Middleware to parse JSON and query parameters
 app.use(express.json());
